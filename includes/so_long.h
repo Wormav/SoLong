@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/02 16:00:04 by jlorette         ###   ########.fr       */
+/*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
+/*   Updated: 2024/09/02 16:16:08 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <mlx.h>
 
-int	main(void)
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+typedef struct s_img
 {
-	void	*mlx;
-	void	*mlx_win;
+	void	*img_player;
+	void	*img_wall;
+	void	*img_collect;
+	void	*img_enemy;
+	void	*img_exit;
+	int		height;
+	int		width;
+}			t_img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 500, 500, "Hello world!");
-	mlx_loop(mlx);
-}
+typedef struct s_pos
+{
+	int		x;
+	int		y;
+}				t_pos;
+
+#endif
