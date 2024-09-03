@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 14:06:30 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:25:56 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ typedef struct s_map
 }				t_map;
 
 char	**allocate_map(int rows, int cols);
+int		check_rectangular_shape(t_map *map_struct);
+int		check_required_elements(t_map *map_struct, int *exit,
+			int *player, int *collectable);
+int		check_valid_chars(t_map *map_struct);
+int		check_walls(t_map *map);
 t_map	*create_map_structure(const char *filename);
 void	free_map(t_map *map_struct);
 
