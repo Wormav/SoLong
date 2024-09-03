@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 19:29:08 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 20:16:35 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include <mlx.h>
@@ -38,7 +38,7 @@ void print_map(t_map *map_struct)
 
 int main(void)
 {
-	t_map *map_struct = create_map_structure("maps/test3.ber");
+	t_map *map_struct = create_map_structure("maps/test3.txt");
 	if (!map_struct)
 	{
 		fprintf(stderr, "Error: Could not read map.\n");

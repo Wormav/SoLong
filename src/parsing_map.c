@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 18:56:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 14:00:13 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 20:17:09 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "../includes/libft.h"
 #include "../includes/so_long.h"
 
 static void	count_rows(const char *buffer, int *rows)
@@ -116,7 +117,14 @@ t_map	*create_map_structure(const char *filename)
 	int		cols;
 	char	**raw_map;
 	t_map	*map_struct;
+	size_t	len;
 
+	len = ft_strlen(filename);
+	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
+	{
+		ft_putstr_fd("Error\nNot a valid file\n", 2);
+		exit(EXIT_FAILURE);
+	}
 	rows = 0;
 	cols = 0;
 	raw_map = read_map(filename, &rows, &cols);
