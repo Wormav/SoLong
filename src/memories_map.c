@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:28:51 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 14:11:48 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:14:29 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	free_map(t_map *map_struct)
 	free(map_struct);
 }
 
-static void free_partial_map(char **map, int rows)
+static void	free_partial_map(char **map, int rows)
 {
 	int	i;
 

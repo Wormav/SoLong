@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 15:17:59 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:01:59 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include <mlx.h>
@@ -23,7 +23,7 @@ int	main(void)
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "includes/so_long.h"
+#include "../includes/so_long.h"
 
 void print_map(t_map *map_struct)
 {
@@ -35,29 +35,21 @@ void print_map(t_map *map_struct)
 	}
 }
 
-int check_walls(t_map *map);
-
 int main(void)
 {
-
 	t_map *map_struct = create_map_structure("maps/test2.ber");
 	if (!map_struct)
 	{
 		fprintf(stderr, "Error: Could not read map.\n");
 		return EXIT_FAILURE;
 	}
-
-	if(check_walls(map_struct) == 0) {
+	if(!check_map(map_struct))
+	{
 		perror("Error\n");
 		return 1;
 	}
-
 	printf("Map dimensions: %d rows x %d columns\n", map_struct->rows, map_struct->cols);
 	print_map(map_struct);
-
-
-
 	free_map(map_struct);
-
 	return 0;
 }
