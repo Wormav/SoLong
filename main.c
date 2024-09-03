@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/02 20:17:40 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:09:06 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include <mlx.h>
@@ -37,19 +37,6 @@ void	print_map(char **map, int rows)
 	}
 }
 
-void	free_map(char **map, int rows)
-{
-	int i;
-
-	i = 0;
-	while (i < rows)
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-}
-
 int	main(void)
 {
 	char	**map;
@@ -67,5 +54,5 @@ int	main(void)
 	print_map(map, rows);
 
 	free_map(map, rows);
-	return (EXIT_SUCCESS);
+	return (0);
 }
