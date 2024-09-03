@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 18:01:59 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 19:29:08 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include <mlx.h>
@@ -24,6 +24,7 @@ int	main(void)
 #include <stdio.h>
 #include <stdlib.h>
 #include "../includes/so_long.h"
+#include "../includes/libft.h"
 
 void print_map(t_map *map_struct)
 {
@@ -37,7 +38,7 @@ void print_map(t_map *map_struct)
 
 int main(void)
 {
-	t_map *map_struct = create_map_structure("maps/test2.ber");
+	t_map *map_struct = create_map_structure("maps/test3.ber");
 	if (!map_struct)
 	{
 		fprintf(stderr, "Error: Could not read map.\n");
@@ -45,7 +46,7 @@ int main(void)
 	}
 	if(!check_map(map_struct))
 	{
-		perror("Error\n");
+		ft_putstr_fd("Error\nThe map is not valid!", 2);
 		return 1;
 	}
 	printf("Map dimensions: %d rows x %d columns\n", map_struct->rows, map_struct->cols);

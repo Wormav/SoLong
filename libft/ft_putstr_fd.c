@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 13:44:37 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 19:25:33 by jlorette         ###   ########.fr       */
+/*   Created: 2024/09/03 19:23:00 by jlorette          #+#    #+#             */
+/*   Updated: 2024/09/03 19:36:26 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../includes/libft.h"
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-int		ft_strlen(const char *str);
+void	ft_putstr_fd(char *s, int fd)
+{
+	unsigned int	i;
 
-#endif
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+}
