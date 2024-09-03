@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 11:09:06 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:10:19 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include <mlx.h>
@@ -25,34 +25,29 @@ int	main(void)
 #include <stdlib.h>
 #include "includes/so_long.h"
 
-void	print_map(char **map, int rows)
+void print_map(t_map *map_struct)
 {
-	int i;
-
-	i = 0;
-	while (i < rows)
+	int i = 0;
+	while (i < map_struct->rows)
 	{
-		printf("%s\n", map[i]);
+		printf("%s\n", map_struct->map[i]);
 		i++;
 	}
 }
 
-int	main(void)
-{
-	char	**map;
-	int		rows;
-	int		cols;
 
-	map = read_map("maps/test2.ber", &rows, &cols);
-	if (!map)
+int main(void)
+{
+	t_map *map_struct = create_map_structure("maps/test2.ber");
+	if (!map_struct)
 	{
 		fprintf(stderr, "Error: Could not read map.\n");
-		return (EXIT_FAILURE);
+		return EXIT_FAILURE;
 	}
 
-	printf("Map dimensions: %d rows x %d columns\n", rows, cols);
-	print_map(map, rows);
+	printf("Map dimensions: %d rows x %d columns\n", map_struct->rows, map_struct->cols);
+	print_map(map_struct);
 
-	free_map(map, rows);
-	return (0);
+	free_map(map_struct);
+	return 0;
 }

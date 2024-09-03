@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 18:56:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 11:37:34 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:00:13 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ static void	count_columns(const char *buffer, int *max_cols)
 		*max_cols = c_count;
 }
 
-static void	copy_buffer_to_map(const char *buffer, char **map,
-int rows, int max_cols)
+static void	copy_buffer_to_map(const char *buffer, char **map, int rows)
 {
 	int	i;
 	int	row;
@@ -82,7 +81,7 @@ int rows, int max_cols)
 	}
 }
 
-char	**read_map(const char *filename, int *rows, int *cols)
+static char	**read_map(const char *filename, int *rows, int *cols)
 {
 	int		fd;
 	int		bytes_read;
@@ -106,7 +105,29 @@ char	**read_map(const char *filename, int *rows, int *cols)
 	count_rows(buffer, rows);
 	count_columns(buffer, cols);
 	map = allocate_map(*rows, *cols);
-	copy_buffer_to_map(buffer, map, *rows, *cols);
+	copy_buffer_to_map(buffer, map, *rows);
 	close(fd);
 	return (map);
+}
+
+t_map	*create_map_structure(const char *filename)
+{
+	int		rows;
+	int		cols;
+	char	**raw_map;
+	t_map	*map_struct;
+
+	rows = 0;
+	cols = 0;
+	raw_map = read_map(filename, &rows, &cols);
+	map_struct = malloc(sizeof(t_map));
+	if (!map_struct)
+	{
+		perror("Error allocating memory for map structure");
+		exit(EXIT_FAILURE);
+	}
+	map_struct->rows = rows;
+	map_struct->cols = cols;
+	map_struct->map = raw_map;
+	return (map_struct);
 }

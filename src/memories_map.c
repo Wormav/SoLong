@@ -6,14 +6,29 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:28:51 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 11:32:56 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:11:48 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "../includes/so_long.h"
 
-void	free_map(char **map, int rows)
+void	free_map(t_map *map_struct)
+{
+	int	i;
+
+	i = 0;
+	while (i < map_struct->rows)
+	{
+		free(map_struct->map[i]);
+		i++;
+	}
+	free(map_struct->map);
+	free(map_struct);
+}
+
+static void free_partial_map(char **map, int rows)
 {
 	int	i;
 
@@ -44,7 +59,7 @@ char	**allocate_map(int rows, int cols)
 		if (!map[i])
 		{
 			perror("Error allocating memory for map");
-			free_map(map, rows);
+			free_partial_map(map, rows);
 			exit(EXIT_FAILURE);
 		}
 		i++;

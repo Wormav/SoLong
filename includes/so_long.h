@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 11:37:54 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:06:30 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,15 @@ typedef struct s_pos
 	int		y;
 }				t_pos;
 
+typedef struct s_map
+{
+	int		cols;
+	int		rows;
+	char	**map;
+}				t_map;
+
 char	**allocate_map(int rows, int cols);
-void	free_map(char **map, int rows);
-char	**read_map(const char *filename, int *rows, int *cols);
+t_map	*create_map_structure(const char *filename);
+void	free_map(t_map *map_struct);
 
 #endif
