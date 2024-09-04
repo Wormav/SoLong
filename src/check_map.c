@@ -6,12 +6,11 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:32:32 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 18:01:02 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/04 10:58:59 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
 #include "../includes/so_long.h"
 
 static int	explore_path_from_start(t_map *map, int x, int y, int visited[])

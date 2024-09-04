@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 17:57:41 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:38:46 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,16 @@
 # define SO_LONG_H
 
 # define BUFFER_SIZE 4096
+# define SIZE_IMG 50
 
-typedef struct s_img
+typedef struct s_mlx
 {
-	void	*img_player;
-	void	*img_wall;
-	void	*img_collect;
-	void	*img_enemy;
-	void	*img_exit;
-	int		height;
+	void	*mlx;
+	void	*win;
+	void	*img;
 	int		width;
-}				t_img;
-
-typedef struct s_pos
-{
-	int		x;
-	int		y;
-}				t_pos;
+	int		height;
+}				t_mlx;
 
 typedef struct s_map
 {
@@ -48,5 +41,6 @@ int		check_valid_chars(t_map *map_struct);
 int		check_walls(t_map *map);
 t_map	*create_map_structure(const char *filename);
 void	free_map(t_map *map_struct);
+void	generate_map(t_map *map, t_mlx *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 18:56:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 20:29:20 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:40:42 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static char	**read_map(const char *filename, int *rows, int *cols)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putstr_fd("Error\nOpening file",2);
+		ft_putstr_fd("Error\nOpening file", 2);
 		exit(EXIT_FAILURE);
 	}
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -130,7 +130,7 @@ t_map	*create_map_structure(const char *filename)
 	map_struct = malloc(sizeof(t_map));
 	if (!map_struct)
 	{
-		ft_putstr_fd("Error\nAllocating memory for map structure",2);
+		ft_putstr_fd("Error\nAllocating memory for map structure", 2);
 		exit(EXIT_FAILURE);
 	}
 	map_struct->rows = rows;

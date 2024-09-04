@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:28:51 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 18:14:29 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:41:00 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ void	free_map(t_map *map_struct)
 	int	i;
 
 	i = 0;
+	if (!map_struct || !map_struct->map)
+		return ;
 	while (i < map_struct->rows)
 	{
 		free(map_struct->map[i]);
 		i++;
 	}
 	free(map_struct->map);
-	free(map_struct);
 }
 
 static void	free_partial_map(char **map, int rows)
