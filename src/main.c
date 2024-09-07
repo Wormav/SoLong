@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/07 11:43:55 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/07 20:54:01 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,21 @@ static int	map_process(const char *filename, t_map *map_struct)
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2 && argv) {
-		t_map	map;
-		t_mlx	mlx;
+	t_map	map;
+	t_mlx	mlx;
 
+	if (argc == 2 && argv) {
 		if (!map_process(argv[1], &map))
 		{
 			free_map(&map);
 			return (1);
 		}
 		generate_map(&map, &mlx);
+		game(&mlx, &map);
+		mlx_loop(mlx.mlx);
 		free_map(&map);
 		return (0);
 	}
-
 	else
 		ft_putstr_fd("Error\nThe number of arguments provided is incorrect", 2);
 	return (1);

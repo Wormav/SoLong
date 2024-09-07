@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/04 15:38:46 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/07 20:53:37 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,14 @@ typedef struct s_map
 {
 	int		cols;
 	int		rows;
+	int		collectible;
 	char	**map;
 }				t_map;
+
+typedef struct s_game {
+	t_mlx  *mlx;
+	t_map  *map;
+}				t_game;
 
 char	**allocate_map(int rows, int cols);
 int		check_map(t_map *map);
@@ -41,6 +47,8 @@ int		check_valid_chars(t_map *map_struct);
 int		check_walls(t_map *map);
 t_map	*create_map_structure(const char *filename);
 void	free_map(t_map *map_struct);
+void	game(t_mlx *mlx, t_map *map);
 void	generate_map(t_map *map, t_mlx *mlx);
+int		keypress_d(t_map *map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:18:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/07 11:26:41 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/07 20:10:43 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,28 @@ static char	*name_img(char c)
 		return ("xpm/drago.xpm");
 	else
 		return ("xpm/floor.xpm");
+}
+
+static void	count_collectible(t_map *map)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (i < map->rows)
+	{
+		j = 0;
+		while (j < map->cols)
+		{
+			if (map->map[i][j] == 'C')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	map->collectible = count;
 }
 
 void	generate_map(t_map *map, t_mlx *mlx)
@@ -50,5 +72,5 @@ void	generate_map(t_map *map, t_mlx *mlx)
 		}
 		i++;
 	}
-	mlx_loop(mlx);
+	count_collectible(map);
 }
