@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/04 15:44:27 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/07 11:43:55 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 #include <mlx.h>
 #include "../includes/so_long.h"
 #include "../includes/libft.h"
-
-/*void print_map(t_map *map_struct)
-{
-	int i = 0;
-	while (i < map_struct->rows)
-	{
-		printf("%s\n", map_struct->map[i]);
-		i++;
-	}
-}*/
 
 static int	map_process(const char *filename, t_map *map_struct)
 {
@@ -42,17 +32,23 @@ static int	map_process(const char *filename, t_map *map_struct)
 	return (1);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	t_map	map;
-	t_mlx	mlx;
+	if (argc == 2 && argv) {
+		t_map	map;
+		t_mlx	mlx;
 
-	if (!map_process("maps/test.ber", &map))
-	{
+		if (!map_process(argv[1], &map))
+		{
+			free_map(&map);
+			return (1);
+		}
+		generate_map(&map, &mlx);
 		free_map(&map);
-		return (1);
+		return (0);
 	}
-	generate_map(&map, &mlx);
-	free_map(&map);
-	return (0);
+
+	else
+		ft_putstr_fd("Error\nThe number of arguments provided is incorrect", 2);
+	return (1);
 }
