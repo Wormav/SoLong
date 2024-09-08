@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/08 12:19:05 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/08 18:19:23 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,20 @@ typedef struct s_map
 	char	**map;
 }				t_map;
 
-typedef struct s_game {
-	t_mlx  *mlx;
-	t_map  *map;
+typedef struct s_game
+{
+	t_mlx	*mlx;
+	t_map	*map;
 }				t_game;
 
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}				t_pos;
+
 char	**allocate_map(int rows, int cols);
+void	move_player(t_map *map, t_mlx *mlx, int x_offset, int y_offset);
 int		check_map(t_map *map);
 int		check_rectangular_shape(t_map *map_struct);
 int		check_required_elements(t_map *map_struct, int *exit,
@@ -46,12 +54,14 @@ int		check_required_elements(t_map *map_struct, int *exit,
 int		check_valid_chars(t_map *map_struct);
 int		check_walls(t_map *map);
 t_map	*create_map_structure(const char *filename);
+void	draw_tile(t_mlx *mlx, int x, int y, char *tile);
 void	free_map(t_map *map_struct);
 void	game(t_mlx *mlx, t_map *map);
 void	generate_map(t_map *map, t_mlx *mlx);
-void keypress_a(t_map *map, t_mlx *mlx);
-void keypress_d(t_map *map, t_mlx *mlx);
-void keypress_s(t_map *map, t_mlx *mlx);
-void keypress_w(t_map *map, t_mlx *mlx);
+void	keypress_a(t_map *map, t_mlx *mlx);
+void	keypress_d(t_map *map, t_mlx *mlx);
+void	keypress_s(t_map *map, t_mlx *mlx);
+void	keypress_w(t_map *map, t_mlx *mlx);
+void	move_player(t_map *map, t_mlx *mlx, int x_offset, int y_offset);
 
 #endif
