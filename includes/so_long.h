@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/07 20:53:37 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/08 12:19:05 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ t_map	*create_map_structure(const char *filename);
 void	free_map(t_map *map_struct);
 void	game(t_mlx *mlx, t_map *map);
 void	generate_map(t_map *map, t_mlx *mlx);
-int		keypress_d(t_map *map);
+void keypress_a(t_map *map, t_mlx *mlx);
+void keypress_d(t_map *map, t_mlx *mlx);
+void keypress_s(t_map *map, t_mlx *mlx);
+void keypress_w(t_map *map, t_mlx *mlx);
 
 #endif

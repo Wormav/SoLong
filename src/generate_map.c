@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:18:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/07 20:10:43 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/08 12:08:19 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,14 @@ void	generate_map(t_map *map, t_mlx *mlx)
 	int		i;
 	int		j;
 
-	mlx->mlx = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlx, map->cols * SIZE_IMG,
-			map->rows * SIZE_IMG, "So_long");
 	i = 0;
 	while (i < map->rows)
 	{
 		j = 0;
 		while (j < map->cols)
 		{
-			mlx->img = mlx_xpm_file_to_image(mlx->mlx,
-					name_img(map->map[i][j]), &mlx->width, &mlx->height);
-			mlx_put_image_to_window(mlx, mlx->win, mlx->img,
-				SIZE_IMG * j, SIZE_IMG * i);
+			mlx->img = mlx_xpm_file_to_image(mlx->mlx, name_img(map->map[i][j]), &mlx->width, &mlx->height);
+			mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, SIZE_IMG * j, SIZE_IMG * i);
 			j++;
 		}
 		i++;
