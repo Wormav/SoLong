@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/08 17:45:41 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:34:52 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static int	map_process(const char *filename, t_map *map_struct)
 {
-	*map_struct = *create_map_structure(filename);
+	*map_struct = *create_map_structure(filename, map_struct);
 	if (!map_struct->map)
 	{
 		ft_putstr_fd("Error: Could not read map.\n", 2);
@@ -32,28 +32,39 @@ static int	map_process(const char *filename, t_map *map_struct)
 	return (1);
 }
 
+static int	game_process(t_mlx *mlx, t_map *map)
+{
+	mlx->mlx = mlx_init();
+	if (!mlx->mlx)
+	{
+		ft_putstr_fd("Error: MLX initialization failed.\n", 2);
+		free_map(map);
+		return (0);
+	}
+	game(mlx, map);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_map	*map;
 	t_mlx	mlx;
 
+	map = malloc(sizeof(t_map));
+	if (!map)
+	{
+		ft_putstr_fd("Error\nAllocating memory for map structure", 2);
+		exit(EXIT_FAILURE);
+	}
 	if (argc == 2 && argv)
 	{
-		if (!map_process(argv[1], &map))
+		if (!map_process(argv[1], map) || !game_process(&mlx, map))
 		{
-			free_map(&map);
+			free_map(map);
 			return (1);
 		}
-		mlx.mlx = mlx_init();
-		if (!mlx.mlx)
-		{
-			ft_putstr_fd("Error: MLX initialization failed.\n", 2);
-			free_map(&map);
-			return (1);
-		}
-		game(&mlx, &map);
-		free_map(&map);
-		return (0);
+		else
+			return (0);
 	}
 	else
 		ft_putstr_fd("Error\nThe number of arguments "

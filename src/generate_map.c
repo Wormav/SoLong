@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:18:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/08 17:43:26 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/08 19:15:26 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	generate_map(t_map *map, t_mlx *mlx)
 					&mlx->width, &mlx->height);
 			mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img,
 				SIZE_IMG * j, SIZE_IMG * i);
+			mlx_destroy_image(mlx->mlx, mlx->img);
 			j++;
 		}
 		i++;

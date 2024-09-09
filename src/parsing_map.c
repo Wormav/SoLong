@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 18:56:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/04 15:40:42 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:13:53 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static void	copy_buffer_to_map(const char *buffer, char **map, int rows)
 		row++;
 		i++;
 	}
+	map[row] = NULL;
 }
 
 static char	**read_map(const char *filename, int *rows, int *cols)
@@ -110,12 +111,11 @@ static char	**read_map(const char *filename, int *rows, int *cols)
 	return (map);
 }
 
-t_map	*create_map_structure(const char *filename)
+t_map	*create_map_structure(const char *filename, t_map *map_struct)
 {
 	int		rows;
 	int		cols;
 	char	**raw_map;
-	t_map	*map_struct;
 	size_t	len;
 
 	len = ft_strlen(filename);
@@ -127,12 +127,6 @@ t_map	*create_map_structure(const char *filename)
 	rows = 0;
 	cols = 0;
 	raw_map = read_map(filename, &rows, &cols);
-	map_struct = malloc(sizeof(t_map));
-	if (!map_struct)
-	{
-		ft_putstr_fd("Error\nAllocating memory for map structure", 2);
-		exit(EXIT_FAILURE);
-	}
 	map_struct->rows = rows;
 	map_struct->cols = cols;
 	map_struct->map = raw_map;

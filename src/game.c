@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:13:52 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/08 18:01:16 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:55:35 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <mlx.h>
@@ -16,9 +16,8 @@
 
 int	close_game(t_game *game)
 {
-	if (game)
-		free(game);
-	exit(0);
+	free(game);
+	exit (0);
 }
 
 int	handle_keypress(int keycode, t_game *game)
@@ -54,5 +53,6 @@ void	game(t_mlx *mlx, t_map *map)
 	mlx_hook(game->mlx->win, 2, 1L << 0, handle_keypress, game);
 	mlx_hook(game->mlx->win, 17, 0, close_game, game);
 	mlx_loop(game->mlx->mlx);
+	free_map(game->map);
 	free(game);
 }
