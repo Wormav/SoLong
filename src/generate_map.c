@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:18:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/08 19:15:26 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:13:56 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 static char	*name_img(char c)
 {
 	if (c == '1')
-		return ("xpm/wall.xpm");
+		return ("textures/wall.xpm");
 	else if (c == 'E')
-		return ("xpm/floor.xpm");
+		return ("textures/floor.xpm");
 	else if (c == 'C')
-		return ("xpm/snake.xpm");
+		return ("textures/snake.xpm");
 	else if (c == 'P')
-		return ("xpm/drago.xpm");
+		return ("textures/drago.xpm");
 	else
-		return ("xpm/floor.xpm");
+		return ("textures/floor.xpm");
 }
 
 static void	count_collectible(t_map *map)

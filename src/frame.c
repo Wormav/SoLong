@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:57:47 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 16:57:45 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:16:09 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	can_move(t_game *game, t_pos pos, t_pos offset)
 	if (game->map->collectible == 0)
 	{
 		end_pos = find_end_position(game->map);
-		draw_tile(game->mlx, end_pos.x, end_pos.y, "xpm/end.xpm");
+		draw_tile(game->mlx, end_pos.x, end_pos.y, "textures/end.xpm");
 		game->map->collectible--;
 	}
 	return (new_i >= 0 && new_i < game->map->rows && new_j
@@ -54,9 +54,9 @@ static int	can_move(t_game *game, t_pos pos, t_pos offset)
 static void	update_position(t_map *map, t_mlx *mlx, t_pos pos, t_pos offset)
 {
 	map->map[pos.y][pos.x] = '0';
-	draw_tile(mlx, pos.x, pos.y, "xpm/floor.xpm");
+	draw_tile(mlx, pos.x, pos.y, "textures/floor.xpm");
 	map->map[pos.y + offset.y][pos.x + offset.x] = 'P';
-	draw_tile(mlx, pos.x + offset.x, pos.y + offset.y, "xpm/drago.xpm");
+	draw_tile(mlx, pos.x + offset.x, pos.y + offset.y, "textures/drago.xpm");
 }
 
 void	move_player(t_game *game, int x_offset, int y_offset)
