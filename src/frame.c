@@ -6,14 +6,16 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:57:47 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/08 19:16:14 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:48:58 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
+#include <includes/libft.h>
+
 #include "../includes/so_long.h"
 
-void	draw_tile(t_mlx *mlx, int x, int y, char *tile)
+static void	draw_tile(t_mlx *mlx, int x, int y, char *tile)
 {
 	mlx_put_image_to_window(mlx->mlx, mlx->win,
 		mlx_xpm_file_to_image(mlx->mlx, tile, &mlx->width, &mlx->height),
@@ -77,5 +79,8 @@ void	move_player(t_map *map, t_mlx *mlx, int x_offset, int y_offset)
 	if (can_move(map, pos, offset))
 	{
 		update_position(map, mlx, pos, offset);
+		mlx->moves++;
+		ft_putnbr_fd(mlx->moves, 1);
+		ft_putchar_fd('\n', 1);
 	}
 }

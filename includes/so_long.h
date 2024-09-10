@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/09 17:03:01 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:48:07 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_mlx
 	void	*img;
 	int		width;
 	int		height;
+	int		moves;
 }				t_mlx;
 
 typedef struct s_map
@@ -54,7 +55,6 @@ int		check_required_elements(t_map *map_struct, int *exit,
 int		check_valid_chars(t_map *map_struct);
 int		check_walls(t_map *map);
 t_map	*create_map_structure(const char *filename, t_map *map_struct);
-void	draw_tile(t_mlx *mlx, int x, int y, char *tile);
 void	free_map(t_map *map_struct);
 void	game(t_mlx *mlx, t_map *map);
 void	generate_map(t_map *map, t_mlx *mlx);

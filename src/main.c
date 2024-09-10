@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/09 18:34:52 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:49:45 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static int	map_process(const char *filename, t_map *map_struct)
 static int	game_process(t_mlx *mlx, t_map *map)
 {
 	mlx->mlx = mlx_init();
+	mlx->moves = 0;
 	if (!mlx->mlx)
 	{
 		ft_putstr_fd("Error: MLX initialization failed.\n", 2);
