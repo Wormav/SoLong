@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:13:52 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 15:43:17 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:34:29 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <mlx.h>
@@ -23,13 +23,13 @@ int	close_game(t_game *game)
 int	handle_keypress(int keycode, t_game *game)
 {
 	if (keycode == 13)
-		keypress_w(game->map, game->mlx);
+		keypress_w(game);
 	else if (keycode == 0)
-		keypress_a(game->map, game->mlx);
+		keypress_a(game);
 	else if (keycode == 1)
-		keypress_s(game->map, game->mlx);
+		keypress_s(game);
 	else if (keycode == 2)
-		keypress_d(game->map, game->mlx);
+		keypress_d(game);
 	else if (keycode == 53)
 		close_game(game);
 	return (0);

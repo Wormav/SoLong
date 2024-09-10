@@ -6,13 +6,13 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:57:47 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 15:48:58 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:57:45 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include <includes/libft.h>
-
+#include <stdio.h>
+#include "../includes/libft.h"
 #include "../includes/so_long.h"
 
 static void	draw_tile(t_mlx *mlx, int x, int y, char *tile)
@@ -22,15 +22,33 @@ static void	draw_tile(t_mlx *mlx, int x, int y, char *tile)
 		x * SIZE_IMG, y * SIZE_IMG);
 }
 
-static int	can_move(t_map *map, t_pos pos, t_pos offset)
+static int	can_move(t_game *game, t_pos pos, t_pos offset)
 {
-	int	new_i;
-	int	new_j;
+	int		new_i;
+	int		new_j;
+	t_pos	end_pos;
 
 	new_i = pos.y + offset.y;
 	new_j = pos.x + offset.x;
-	return (new_i >= 0 && new_i < map->rows && new_j >= 0 && new_j < map->cols
-		&& map->map[new_i][new_j] != '1');
+	if (game->map->map[new_i][new_j] == 'C')
+		game->map->collectible--;
+	if (game->map->map[new_i][new_j] == 'E' && game->map->collectible == -1)
+	{
+		ft_putnbr_fd(game->mlx->moves + 1, 1);
+		ft_putchar_fd('\n', 1);
+		ft_putstr_fd("Congratulations you won with: ", 1);
+		ft_putnbr_fd(game->mlx->moves + 1, 1);
+		ft_putstr_fd(" moves!", 1);
+		close_game(game);
+	}
+	if (game->map->collectible == 0)
+	{
+		end_pos = find_end_position(game->map);
+		draw_tile(game->mlx, end_pos.x, end_pos.y, "xpm/end.xpm");
+		game->map->collectible--;
+	}
+	return (new_i >= 0 && new_i < game->map->rows && new_j
+		>= 0 && new_j < game->map->cols && game->map->map[new_i][new_j] != '1');
 }
 
 static void	update_position(t_map *map, t_mlx *mlx, t_pos pos, t_pos offset)
@@ -41,46 +59,19 @@ static void	update_position(t_map *map, t_mlx *mlx, t_pos pos, t_pos offset)
 	draw_tile(mlx, pos.x + offset.x, pos.y + offset.y, "xpm/drago.xpm");
 }
 
-static t_pos	find_player_position(t_map *map)
-{
-	t_pos	pos;
-	int		i;
-	int		j;
-	int		found;
-
-	i = 0;
-	found = 0;
-	while (i < map->rows && !found)
-	{
-		j = 0;
-		while (j < map->cols && !found)
-		{
-			if (map->map[i][j] == 'P')
-			{
-				pos.x = j;
-				pos.y = i;
-				found = 1;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (pos);
-}
-
-void	move_player(t_map *map, t_mlx *mlx, int x_offset, int y_offset)
+void	move_player(t_game *game, int x_offset, int y_offset)
 {
 	t_pos	pos;
 	t_pos	offset;
 
 	offset.y = y_offset;
 	offset.x = x_offset;
-	pos = find_player_position(map);
-	if (can_move(map, pos, offset))
+	pos = find_player_position(game->map);
+	if (can_move(game, pos, offset))
 	{
-		update_position(map, mlx, pos, offset);
-		mlx->moves++;
-		ft_putnbr_fd(mlx->moves, 1);
+		update_position(game->map, game->mlx, pos, offset);
+		game->mlx->moves++;
+		ft_putnbr_fd(game->mlx->moves, 1);
 		ft_putchar_fd('\n', 1);
 	}
 }
