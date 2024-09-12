@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:13:52 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 16:34:29 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/12 15:09:07 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <mlx.h>
@@ -16,6 +16,7 @@
 
 int	close_game(t_game *game)
 {
+	mlx_destroy_window(game->mlx->mlx, game->mlx->win);
 	free(game);
 	exit (0);
 }
