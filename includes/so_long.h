@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 16:35:41 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:02:45 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_pos
 }				t_pos;
 
 char	**allocate_map(int rows, int cols);
+int		check_collectibles(t_map *map);
 int		check_map(t_map *map);
 int		check_rectangular_shape(t_map *map_struct);
 int		check_required_elements(t_map *map_struct, int *exit,
@@ -54,6 +55,7 @@ int		check_required_elements(t_map *map_struct, int *exit,
 int		check_valid_chars(t_map *map_struct);
 int		check_walls(t_map *map);
 int		close_game(t_game *game);
+void	count_collectible(t_map *map);
 t_map	*create_map_structure(const char *filename, t_map *map_struct);
 t_pos	find_end_position(t_map *map);
 t_pos	find_player_position(t_map *map);
