@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:18:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 17:13:56 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:02:21 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char	*name_img(char c)
 		return ("textures/floor.xpm");
 }
 
-static void	count_collectible(t_map *map)
+void	count_collectible(t_map *map)
 {
 	int	i;
 	int	j;
