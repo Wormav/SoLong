@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 18:56:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/09 18:13:53 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:12:58 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ static char	**read_map(const char *filename, int *rows, int *cols)
 	return (map);
 }
 
-t_map	*create_map_structure(const char *filename, t_map *map_struct)
+t_map	*create_map_structure(const char *filename, t_map *map)
 {
 	int		rows;
 	int		cols;
@@ -127,8 +127,8 @@ t_map	*create_map_structure(const char *filename, t_map *map_struct)
 	rows = 0;
 	cols = 0;
 	raw_map = read_map(filename, &rows, &cols);
-	map_struct->rows = rows;
-	map_struct->cols = cols;
-	map_struct->map = raw_map;
-	return (map_struct);
+	map->rows = rows;
+	map->cols = cols;
+	map->data = raw_map;
+	return (map);
 }

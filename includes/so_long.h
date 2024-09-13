@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 13:47:11 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:15:15 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_map
 	int		rows;
 	t_pos	end_pos;
 	int		collectible;
-	char	**map;
+	char	**data;
 }				t_map;
 
 typedef struct s_game
@@ -50,17 +50,17 @@ typedef struct s_game
 char	**allocate_map(int rows, int cols);
 int		check_collectibles(t_map *map);
 int		check_map(t_map *map);
-int		check_rectangular_shape(t_map *map_struct);
-int		check_required_elements(t_map *map_struct, int *exit,
+int		check_rectangular_shape(t_map *map);
+int		check_required_elements(t_map *map, int *exit,
 			int *player, int *collectable);
-int		check_valid_chars(t_map *map_struct);
+int		check_valid_chars(t_map *map);
 int		check_walls(t_map *map);
 int		close_game(t_game *game);
 void	count_collectible(t_map *map);
-t_map	*create_map_structure(const char *filename, t_map *map_struct);
+t_map	*create_map_structure(const char *filename, t_map *map);
 t_pos	find_end_position(t_map *map);
 t_pos	find_player_position(t_map *map);
-void	free_map(t_map *map_struct);
+void	free_map(t_map *map);
 void	game(t_mlx *mlx, t_map *map);
 void	generate_map(t_map *map, t_mlx *mlx);
 void	keypress_a(t_game *game);

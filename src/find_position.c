@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:07:45 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 16:55:36 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:01:25 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_pos	find_player_position(t_map *map)
 		j = 0;
 		while (j < map->cols && !found)
 		{
-			if (map->map[i][j] == 'P')
+			if (map->data[i][j] == 'P')
 			{
 				pos.x = j;
 				pos.y = i;
@@ -53,7 +53,7 @@ t_pos	find_end_position(t_map *map)
 		j = 0;
 		while (j < map->cols && !found)
 		{
-			if (map->map[i][j] == 'E')
+			if (map->data[i][j] == 'E')
 			{
 				pos.x = j;
 				pos.y = i;

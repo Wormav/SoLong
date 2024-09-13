@@ -6,20 +6,19 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:32:32 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/12 13:06:02 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:08:19 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "../includes/so_long.h"
 
 static int	explore_path_from_start(t_map *map, int x, int y, int visited[])
 {
 	if (x < 0 || x >= map->rows || y < 0 || y >= map->cols
-		|| map->map[x][y] == '1' || visited[x * map->cols + y])
+		|| map->data[x][y] == '1' || visited[x * map->cols + y])
 		return (0);
-	if (map->map[x][y] == 'E')
+	if (map->data[x][y] == 'E')
 		return (1);
 	visited[x * map->cols + y] = 1;
 	if (explore_path_from_start(map, x + 1, y, visited)
@@ -41,7 +40,7 @@ static int	find_start_position(t_map *map, int *start_x, int *start_y)
 		j = 0;
 		while (j < map->cols)
 		{
-			if (map->map[i][j] == 'P')
+			if (map->data[i][j] == 'P')
 			{
 				*start_x = i;
 				*start_y = j;

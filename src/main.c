@@ -6,30 +6,29 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 13:49:37 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:10:40 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <mlx.h>
 #include "../includes/so_long.h"
 #include "../includes/libft.h"
 
-static int	map_process(const char *filename, t_map *map_struct)
+static int	map_process(const char *filename, t_map *map)
 {
-	*map_struct = *create_map_structure(filename, map_struct);
-	if (!map_struct->map)
+	*map = *create_map_structure(filename, map);
+	if (!map->data)
 	{
 		ft_putstr_fd("Error: Could not read map.\n", 2);
 		return (0);
 	}
-	if (!check_map(map_struct))
+	if (!check_map(map))
 	{
 		ft_putstr_fd("Error\nThe map is not valid!\n", 2);
 		return (0);
 	}
-	map_struct->end_pos = find_end_position(map_struct);
+	map->end_pos = find_end_position(map);
 	return (1);
 }
 

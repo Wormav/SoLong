@@ -6,12 +6,11 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:57:47 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 13:50:42 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:16:26 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include <stdio.h>
 #include "../includes/libft.h"
 #include "../includes/so_long.h"
 
@@ -30,9 +29,9 @@ static int	can_move(t_game *game, t_pos pos, t_pos offset)
 
 	new_i = pos.y + offset.y;
 	new_j = pos.x + offset.x;
-	if (game->map->map[new_i][new_j] == 'C')
+	if (game->map->data[new_i][new_j] == 'C')
 		game->map->collectible--;
-	if (game->map->map[new_i][new_j] == 'E' && game->map->collectible == -1)
+	if (game->map->data[new_i][new_j] == 'E' && game->map->collectible == -1)
 	{
 		ft_putnbr_fd(game->mlx->moves + 1, 1);
 		ft_putchar_fd('\n', 1);
@@ -47,18 +46,18 @@ static int	can_move(t_game *game, t_pos pos, t_pos offset)
 		draw_tile(game->mlx, end_pos.x, end_pos.y, "textures/end.xpm");
 		game->map->collectible--;
 	}
-	return (new_i >= 0 && new_i < game->map->rows && new_j
-		>= 0 && new_j < game->map->cols && game->map->map[new_i][new_j] != '1');
+	return (new_i >= 0 && new_i < game->map->rows && new_j >= 0
+		&& new_j < game->map->cols && game->map->data[new_i][new_j] != '1');
 }
 
 static void	update_position(t_map *map, t_mlx *mlx, t_pos pos, t_pos offset)
 {
-	if (pos.x == map->end_pos.x && pos.y == map->end_pos.y )
-		map->map[pos.y][pos.x] = 'E';
+	if (pos.x == map->end_pos.x && pos.y == map->end_pos.y)
+		map->data[pos.y][pos.x] = 'E';
 	else
-		map->map[pos.y][pos.x] = '0';
+		map->data[pos.y][pos.x] = '0';
 	draw_tile(mlx, pos.x, pos.y, "textures/floor.xpm");
-	map->map[pos.y + offset.y][pos.x + offset.x] = 'P';
+	map->data[pos.y + offset.y][pos.x + offset.x] = 'P';
 	draw_tile(mlx, pos.x + offset.x, pos.y + offset.y, "textures/drago.xpm");
 }
 

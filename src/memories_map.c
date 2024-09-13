@@ -6,32 +6,31 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:28:51 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/09 17:05:02 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:12:36 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "../includes/so_long.h"
 #include "../includes/libft.h"
 
-void	free_map(t_map *map_struct)
+void	free_map(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	if (!map_struct)
+	if (!map)
 		return ;
-	if (map_struct->map)
+	if (map->data)
 	{
-		while (map_struct->map[i])
+		while (map->data[i])
 		{
-			free(map_struct->map[i]);
+			free(map->data[i]);
 			i++;
 		}
 	}
-	free(map_struct->map);
-	free(map_struct);
+	free(map->data);
+	free(map);
 }
 
 static void	free_partial_map(char **map, int rows)

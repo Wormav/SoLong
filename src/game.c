@@ -6,9 +6,10 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:13:52 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/12 15:09:07 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:08:47 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <mlx.h>
 #include <stdlib.h>
 #include "../includes/libft.h"
