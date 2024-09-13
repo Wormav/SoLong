@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:57:47 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 17:16:09 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:50:42 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ static int	can_move(t_game *game, t_pos pos, t_pos offset)
 
 static void	update_position(t_map *map, t_mlx *mlx, t_pos pos, t_pos offset)
 {
-	map->map[pos.y][pos.x] = '0';
+	if (pos.x == map->end_pos.x && pos.y == map->end_pos.y )
+		map->map[pos.y][pos.x] = 'E';
+	else
+		map->map[pos.y][pos.x] = '0';
 	draw_tile(mlx, pos.x, pos.y, "textures/floor.xpm");
 	map->map[pos.y + offset.y][pos.x + offset.x] = 'P';
 	draw_tile(mlx, pos.x + offset.x, pos.y + offset.y, "textures/drago.xpm");

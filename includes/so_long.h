@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/12 13:02:45 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:47:11 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,17 @@ typedef struct s_mlx
 	int		moves;
 }				t_mlx;
 
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}				t_pos;
+
 typedef struct s_map
 {
 	int		cols;
 	int		rows;
+	t_pos	end_pos;
 	int		collectible;
 	char	**map;
 }				t_map;
@@ -39,12 +46,6 @@ typedef struct s_game
 	t_mlx	*mlx;
 	t_map	*map;
 }				t_game;
-
-typedef struct s_pos
-{
-	int	x;
-	int	y;
-}				t_pos;
 
 char	**allocate_map(int rows, int cols);
 int		check_collectibles(t_map *map);

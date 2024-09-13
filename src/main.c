@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/10 16:35:47 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:49:37 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int	map_process(const char *filename, t_map *map_struct)
 		ft_putstr_fd("Error\nThe map is not valid!\n", 2);
 		return (0);
 	}
+	map_struct->end_pos = find_end_position(map_struct);
 	return (1);
 }
 
