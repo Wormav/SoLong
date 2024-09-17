@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 20:11:05 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/03 20:15:03 by jlorette         ###   ########.fr       */
+/*   Created: 2024/08/05 20:38:44 by jlorette          #+#    #+#             */
+/*   Updated: 2024/08/06 16:04:45 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {

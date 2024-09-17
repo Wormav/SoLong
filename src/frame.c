@@ -6,12 +6,12 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:57:47 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 14:16:26 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:30:01 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 #include "../includes/so_long.h"
 
 static void	draw_tile(t_mlx *mlx, int x, int y, char *tile)

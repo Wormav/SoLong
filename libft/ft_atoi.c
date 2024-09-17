@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 14:28:04 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/09 14:52:11 by jlorette         ###   ########.fr       */
+/*   Created: 2024/08/06 15:01:12 by jlorette          #+#    #+#             */
+/*   Updated: 2024/08/06 15:10:18 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_atoi(const char *str)
 {
-	if (n == -2147483648)
+	int	i;
+	int	result;
+	int	sign;
+
+	i = 0;
+	result = 0;
+	sign = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		n = 147483648;
+		if (str[i] == '-')
+			sign = -sign;
+		i++;
 	}
-	if (n < 0)
+	while (ft_isdigit(str[i]))
 	{
-		ft_putchar_fd('-', fd);
-		n = n * -1;
+		result = (result * 10) + str[i] - 48;
+		i++;
 	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-	{
-		ft_putchar_fd(n + 48, fd);
-	}
+	return (result * sign);
 }
