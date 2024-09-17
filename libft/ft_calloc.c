@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 14:28:04 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/09 14:52:11 by jlorette         ###   ########.fr       */
+/*   Created: 2024/08/07 15:58:41 by jlorette          #+#    #+#             */
+/*   Updated: 2024/08/08 16:51:41 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	*ft_calloc(size_t element_count, size_t element_size)
 {
-	if (n == -2147483648)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		n = 147483648;
-	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = n * -1;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-	{
-		ft_putchar_fd(n + 48, fd);
-	}
+	void	*result;
+
+	if (element_size && element_count * element_size / element_size
+		!= element_count)
+		return (NULL);
+	result = malloc(element_count * element_size);
+	if (!result)
+		return (NULL);
+	ft_bzero(result, element_count * element_size);
+	return (result);
 }

@@ -6,14 +6,14 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 18:56:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 14:12:58 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:29:54 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 #include "../includes/so_long.h"
 
 static void	count_rows(const char *buffer, int *rows)

@@ -6,13 +6,13 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:28:51 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 14:12:36 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:30:25 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../includes/so_long.h"
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 
 void	free_map(t_map *map)
 {

@@ -6,13 +6,13 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:16:07 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 14:12:15 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:31:41 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../includes/so_long.h"
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 
 static int	is_valid_char(char c)
 {

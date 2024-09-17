@@ -6,14 +6,14 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:44:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 14:10:40 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:30:07 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <mlx.h>
 #include "../includes/so_long.h"
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 
 static int	map_process(const char *filename, t_map *map)
 {
