@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "exec",
+            "type": "shell",
+            "command": "cc",
+            "args": [
+                "-g",
+                "src/*.c",
+                "-Lmlx",
+                "-lmlx",
+                "-framework", "OpenGL",
+                "-framework", "AppKit",
+                "-Llibft",
+                "-lft",
+                "-o", "SoLong"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile et exécute SoLong",
+            "dependsOn": "build"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make re",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Exécute le Makefile pour compiler SoLong"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "./SoLong",
+            "args": ["maps/test.ber"],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "dependsOn": "exec",
+            "detail": "Exécute SoLong avec l'argument maps/test.ber"
+        }
+    ]
+}
