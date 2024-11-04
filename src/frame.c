@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:13:21 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/04 10:13:26 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:25:19 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 
 static void	draw_tile(t_mlx *mlx, int x, int y, char *tile)
 {
-	mlx_put_image_to_window(mlx->mlx, mlx->win,
-		mlx_xpm_file_to_image(mlx->mlx, tile, &mlx->width, &mlx->height),
-		x * SIZE_IMG, y * SIZE_IMG);
+	mlx->img = mlx_xpm_file_to_image(mlx->mlx, tile, &mlx->width, &mlx->height);
+
+	mlx_put_image_to_window(mlx->mlx, mlx->win,mlx->img,x * SIZE_IMG, y * SIZE_IMG);
+	mlx_destroy_image(mlx->mlx, mlx->img);
 }
 
 static int	can_move(t_game *game, t_pos pos, t_pos offset)
