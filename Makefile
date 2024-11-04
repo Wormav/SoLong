@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src
 INCLUDE_DIR = include
 LIBFT_DIR = libft
-MLX_DIR = mlx
+MLX_DIR = mlx_linux
 
 SRC = $(SRC_DIR)/check_collectibles.c \
 	$(SRC_DIR)/check_map.c \
@@ -20,19 +20,21 @@ SRC = $(SRC_DIR)/check_collectibles.c \
 	$(SRC_DIR)/parsing_map.c \
 	$(SRC_DIR)/validate_functions_map.c \
 
-
 OBJ = $(SRC:.c=.o)
 
-HEADER = $(INCLUDE_DIR)/so_long.h)
+HEADER = $(INCLUDE_DIR)/so_long.h
 
-all: $(LIBFT_DIR)/libft.a $(NAME)
+all: $(MLX_DIR)/libmlx_Linux.a $(LIBFT_DIR)/libft.a $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -L$(LIBFT_DIR) -lft -o $(NAME)
-	cp $(MLX_DIR)/libmlx.dylib ./
+	$(CC) $(OBJ) $(MLX_DIR)/libmlx_Linux.a -L$(LIBFT_DIR) -lft -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 
 $(LIBFT_DIR)/libft.a:
 	@$(MAKE) -C $(LIBFT_DIR)
+
+# Compilation de la MiniLibX si nécessaire
+$(MLX_DIR)/libmlx_Linux.a:
+	@$(MAKE) -C $(MLX_DIR)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(INCLUDE_DIR) -I$(LIBFT_DIR) -c $< -o $@
@@ -40,10 +42,12 @@ $(LIBFT_DIR)/libft.a:
 clean:
 	rm -f $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(MLX_DIR) clean
 
 fclean: clean
-	rm -f $(NAME) libmlx.dylib
+	rm -f $(NAME)
 	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(MLX_DIR) clean
 
 re: fclean all
 

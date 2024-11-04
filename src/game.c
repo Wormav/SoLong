@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:13:52 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/17 16:29:44 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/04 08:13:13 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include "../mlx_linux/mlx.h"
 #include <stdlib.h>
 #include "../libft/libft.h"
 #include "../includes/so_long.h"

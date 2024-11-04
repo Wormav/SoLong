@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   generate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:18:16 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 14:17:18 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/04 08:10:10 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include "../mlx_linux/mlx.h"
 #include "../includes/so_long.h"
 
 static char	*name_img(char c)
