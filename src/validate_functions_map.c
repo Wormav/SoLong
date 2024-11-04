@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_functions_map.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 13:16:07 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/04 08:12:50 by jlorette         ###   ########.fr       */
+/*   Created: 2024/11/04 10:14:18 by jlorette          #+#    #+#             */
+/*   Updated: 2024/11/04 10:14:22 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

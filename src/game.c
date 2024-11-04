@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 20:13:52 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/04 08:13:13 by jlorette         ###   ########.fr       */
+/*   Created: 2024/11/04 10:13:34 by jlorette          #+#    #+#             */
+/*   Updated: 2024/11/04 10:13:35 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx_linux/mlx.h"
 #include <stdlib.h>
+#include "../mlx_linux/mlx.h"
 #include "../libft/libft.h"
 #include "../includes/so_long.h"
 
@@ -19,20 +19,20 @@ int	close_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx->mlx, game->mlx->win);
 	free(game);
-	exit (0);
+	exit(0);
 }
 
 int	handle_keypress(int keycode, t_game *game)
 {
-	if (keycode == 13)
+	if (keycode == 119)
 		keypress_w(game);
-	else if (keycode == 0)
+	else if (keycode == 97)
 		keypress_a(game);
-	else if (keycode == 1)
+	else if (keycode == 115)
 		keypress_s(game);
-	else if (keycode == 2)
+	else if (keycode == 100)
 		keypress_d(game);
-	else if (keycode == 53)
+	else if (keycode == 65307)
 		close_game(game);
 	return (0);
 }

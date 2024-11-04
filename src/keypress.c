@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keypress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 20:35:53 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/04 08:10:15 by jlorette         ###   ########.fr       */
+/*   Created: 2024/11/04 10:13:48 by jlorette          #+#    #+#             */
+/*   Updated: 2024/11/04 10:13:50 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
