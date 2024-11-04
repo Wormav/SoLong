@@ -32,7 +32,6 @@ $(NAME): $(OBJ)
 $(LIBFT_DIR)/libft.a:
 	@$(MAKE) -C $(LIBFT_DIR)
 
-# Compilation de la MiniLibX si nécessaire
 $(MLX_DIR)/libmlx_Linux.a:
 	@$(MAKE) -C $(MLX_DIR)
 
