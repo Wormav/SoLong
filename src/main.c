@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:13:55 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/05 15:45:06 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:06:39 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	game_process(t_mlx *mlx, t_map *map)
 	if (!mlx->mlx)
 	{
 		ft_putstr_fd("Error: MLX initialization failed.\n", 2);
-		// free map avant
+		free_map(map);
 		return (0);
 	}
 	game(mlx, map);
