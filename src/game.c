@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:13:34 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/04 16:04:27 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:45:26 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 
 int	close_game(t_game *game)
 {
+	mlx_clear_window(game->mlx->mlx, game->mlx->win);
 	mlx_destroy_window(game->mlx->mlx, game->mlx->win);
+	mlx_destroy_display(game->mlx->mlx);
+	free_map(game->map);
+	free(game->mlx->mlx);
 	free(game);
 	exit(0);
 }
@@ -55,6 +59,5 @@ void	game(t_mlx *mlx, t_map *map)
 	mlx_hook(game->mlx->win, 2, 1L << 0, handle_keypress, game);
 	mlx_hook(game->mlx->win, 17, 0, close_game, game);
 	mlx_loop(game->mlx->mlx);
-	free_map(game->map);
-	free(game);
+	mlx_loop_end(game->mlx);
 }

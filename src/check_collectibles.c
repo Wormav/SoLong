@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_collectibles.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:12:21 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/04 10:12:24 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:49:45 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
