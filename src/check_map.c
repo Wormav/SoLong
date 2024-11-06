@@ -29,7 +29,7 @@ static int	explore_path_from_start(t_map *map, int x, int y, int visited[])
 	return (0);
 }
 
-static int	find_start_position(t_map *map, int *start_x, int *start_y)
+int	find_start_position(t_map *map, int *start_x, int *start_y)
 {
 	int	i;
 	int	j;

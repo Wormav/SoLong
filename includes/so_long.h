@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 16:04:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/09/13 14:15:15 by jlorette         ###   ########.fr       */
+/*   Created: 2024/11/04 16:04:12 by jlorette          #+#    #+#             */
+/*   Updated: 2024/11/04 14:15:15 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	count_collectible(t_map *map);
 t_map	*create_map_structure(const char *filename, t_map *map);
 t_pos	find_end_position(t_map *map);
 t_pos	find_player_position(t_map *map);
+int		find_start_position(t_map *map, int *start_x, int *start_y);
 void	free_map(t_map *map);
 void	game(t_mlx *mlx, t_map *map);
 void	generate_map(t_map *map, t_mlx *mlx);

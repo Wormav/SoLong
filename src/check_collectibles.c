@@ -28,32 +28,6 @@ static int	explore_collectibles(t_map *map, int x, int y, int visited[])
 	return (1);
 }
 
-static int	find_start_position(t_map *map, int *start_x, int *start_y)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < map->rows)
-	{
-		j = 0;
-		while (j < map->cols)
-		{
-			if (map->data[i][j] == 'P')
-			{
-				*start_x = i;
-				*start_y = j;
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	*start_x = -1;
-	*start_y = -1;
-	return (0);
-}
-
 int	check_collectibles(t_map *map)
 {
 	int	start_x;
