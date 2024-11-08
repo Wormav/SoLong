@@ -1,4 +1,4 @@
-NAME = SoLong
+NAME = so_long
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -27,7 +27,7 @@ HEADER = $(INCLUDE_DIR)/so_long.h
 all: $(MLX_DIR)/libmlx_Linux.a $(LIBFT_DIR)/libft.a $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(MLX_DIR)/libmlx_Linux.a -L$(LIBFT_DIR) -lft -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(MLX_DIR)/libmlx_Linux.a -L$(LIBFT_DIR) -lft -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 
 $(LIBFT_DIR)/libft.a:
 	@$(MAKE) -C $(LIBFT_DIR)

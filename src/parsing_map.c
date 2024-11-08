@@ -121,6 +121,7 @@ t_map	*create_map_structure(const char *filename, t_map *map)
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
 	{
+		free_map(map);
 		ft_putstr_fd("Error\nNot a valid file\n", 2);
 		exit(EXIT_FAILURE);
 	}

@@ -64,11 +64,13 @@ int	main(int argc, char **argv)
 			free_map(map);
 			return (1);
 		}
-		else
-			return (0);
 	}
 	else
+	{
+		free_map(map);
 		ft_putstr_fd("Error\nThe number of arguments "
-			"provided is incorrect\n", 2);
+					 "provided is incorrect\n",
+					 2);
+	}
 	return (1);
 }
