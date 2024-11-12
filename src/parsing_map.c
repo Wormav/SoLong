@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:14:10 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/04 10:14:11 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:11:28 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,14 @@ static char	**read_map(const char *filename, int *rows, int *cols)
 	if (fd < 0)
 	{
 		ft_putstr_fd("Error\nOpening file", 2);
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read < 0)
 	{
 		ft_putstr_fd("Error\nReading file", 2);
 		close(fd);
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	buffer[bytes_read] = '\0';
 	count_rows(buffer, rows);
@@ -121,13 +121,18 @@ t_map	*create_map_structure(const char *filename, t_map *map)
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
 	{
-		free_map(map);
+		free(map);
 		ft_putstr_fd("Error\nNot a valid file\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	rows = 0;
 	cols = 0;
 	raw_map = read_map(filename, &rows, &cols);
+	if (!raw_map)
+	{
+		free(map);
+		exit(EXIT_FAILURE);
+	}
 	map->rows = rows;
 	map->cols = cols;
 	map->data = raw_map;

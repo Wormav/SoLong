@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:13:55 by jlorette          #+#    #+#             */
-/*   Updated: 2024/11/05 18:06:08 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:14:44 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,9 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		free_map(map);
+		free(map);
 		ft_putstr_fd("Error\nThe number of arguments "
-					 "provided is incorrect\n",
-					 2);
+			"provided is incorrect\n", 2);
 	}
 	return (1);
 }
